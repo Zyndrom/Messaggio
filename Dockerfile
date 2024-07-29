@@ -1,4 +1,4 @@
-FROM golang:latest AS builder
+FROM golang:alpine as builder
 
 WORKDIR /build
 ADD go.mod .
@@ -7,7 +7,7 @@ COPY . .
 
 RUN go build -o messages_service cmd/main.go
 
-FROM ubuntu:latest
+FROM alpine:3
 
 WORKDIR /build
 
